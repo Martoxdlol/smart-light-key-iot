@@ -1,6 +1,6 @@
 # Interruptor inteligente de luz con ESP8266
 
-Para probar la app se puede hacer acá: [app.iot.abcd.ar/](https://app.iot.abcd.ar/)
+Para probar la app se puede hacer acá: [app.iot.abcd.ar/](https://app.iot.abcd.ar)
 
 Usar 
 Codigo: pepe
