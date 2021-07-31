@@ -1,0 +1,25 @@
+*{
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.building-card{
+  padding: 10px;
+}
+
+h1{
+  font-size: 28px;
+  font-weight: 400;
+}
+
+body{
+  margin: auto;
+  padding: 10px;
+  max-width: 800px;
+}
+
+.i-box{
+  padding: 4px;
+  display: inline-block;
+}

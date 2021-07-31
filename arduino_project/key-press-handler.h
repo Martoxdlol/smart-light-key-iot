@@ -1,0 +1,3 @@
+void voidCheckIfMultiLongPress();
+
+void initKeys();

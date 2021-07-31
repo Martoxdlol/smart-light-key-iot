@@ -1,0 +1,26 @@
+input{
+  margin: 3px 0px 0px 0px;
+  padding: 5px 4px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #0066CC;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  margin-bottom: 7px;
+  border-radius: 0;
+}
+
+
+input[type="submit"], button[type="submit"]{
+  font-size: 16px;
+  border: none;
+  background-color: #0066CC;
+  color: white;
+  width: auto;
+  float: right;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-top: 6px;
+}

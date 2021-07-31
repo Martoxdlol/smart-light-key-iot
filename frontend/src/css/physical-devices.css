@@ -1,0 +1,34 @@
+.phys-dev-card{
+  margin-bottom: 15px;
+}
+
+.phys-dev-card > div{
+  display: flex;
+}
+
+.phys-dev-card img{
+  height: 69px;
+  width: 69px;
+  object-fit: cover;
+}
+
+.phys-dev-card > div > div:nth-child(2){
+  padding-left: 10px;
+}
+
+.phys-dev-card > div > div:nth-child(3){
+  margin-left: auto;
+}
+
+.phys-dev-card i.material-icons{
+  cursor: pointer;
+}
+
+.phys-dev-card  span{
+  display: block;
+}
+
+
+.phys-dev-card > div *{
+  user-select: text;
+}

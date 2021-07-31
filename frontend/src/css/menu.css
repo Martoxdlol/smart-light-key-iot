@@ -1,0 +1,90 @@
+.menu-button{
+  padding: 6px 8px;
+  border-radius: 4px;
+  display: block;
+  color: #CCC;
+}
+
+.menu-button:hover{
+  background-color: #2e2e2e;
+}
+
+
+
+
+.button-menu{
+  padding: 0 0 0 0px;
+  border-radius: 4px;
+  display: block;
+  display: flex;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.button-menu[disabled]{
+  cursor: inherit;
+}
+
+.button-menu:not([disabled]):hover{
+  background-color: #2e2e2e;
+  justify-content: flex-start;
+}
+
+.button-menu > div:nth-child(1){
+  padding: 12px 11px 6px 10px;
+  border-radius: 4px;
+}
+
+.button-menu > div:nth-child(3){
+  margin-left: auto;
+  padding: 12px 10px 6px 11px;
+  border-radius: 4px;
+}
+
+.button-menu > div:nth-child(3):hover{
+  background-color: #202020;
+}
+
+.button-menu > div:nth-child(2){
+  padding: 12px 4px 15px 0px;
+}
+
+.button-menu[disabled] > div:nth-child(2){
+  color: #AAA;
+}
+
+
+
+.block-link{
+  display: block;
+  padding: 4px 0px;
+}
+
+
+.contextmenu{
+  background-color: white;
+  display: inline-block;
+  position: absolute;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: #333;
+  box-shadow: 2px 0px 5px -2px rgba(51,51,51,0.2);
+  z-index: 3;
+}
+
+.contextmenu-option{
+  height: 50px;
+  padding: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.contextmenu-option:hover{
+  background-color: #222;
+}

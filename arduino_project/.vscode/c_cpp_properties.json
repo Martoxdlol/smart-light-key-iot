@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\tomas\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
+                "C:\\Program Files (x86)\\Arduino\\libraries\\**",
+                "C:\\Users\\tomas\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.7.4\\**",
+                "${workspaceFolder}/**",
+                "C:\\Users\\tomas\\Documents\\Arduino\\libraries\\**",
+                "C:\\Users\\tomas\\AppData\\Local\\Arduino15\\packages\\**",
+                "C:\\Users\\tomas\\Documents\\Arduino\\interr2_2021\\libs_ref_VSCODE_use\\**",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\**",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SPI\\src\\**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USBCON"
+            ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe",
+            "intelliSenseMode": "gcc-x86",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "forcedInclude": []
+        }
+    ],
+    "version": 4
+}

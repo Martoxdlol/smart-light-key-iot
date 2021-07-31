@@ -1,0 +1,1 @@
+// WifiNetwork checkPosibleConnection(int offset);

@@ -1,0 +1,36 @@
+{
+  "name": "interruptor_inteligente_2020_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tomás Cichero",
+  "license": "ISC",
+  "dependencies": {
+    "async-redis": "^1.1.7",
+    "axios": "^0.21.1",
+    "babel-plugin-import": "^1.13.3",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.19.0",
+    "cookie-session": "^1.4.0",
+    "crypto-js": "^4.0.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.4.2",
+    "pug": "^3.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "sha1": "^1.1.1",
+    "short-uuid": "^4.1.0",
+    "socket.io": "^3.0.5",
+    "uid-safe": "^2.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-react": "^7.12.10",
+    "babel-cli": "^6.26.0"
+  }
+}

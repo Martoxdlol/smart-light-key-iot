@@ -1,0 +1,111 @@
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  overflow: hidden;
+}
+
+.top-items-container {
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.top-items-container .title-bar .right{
+  margin-left: auto;
+}
+
+.top-items-container .title-bar a{
+  margin: 0px 6px;
+}
+
+.title-bar{
+  display: flex;
+  margin: 3px 0px;
+  cursor: pointer;
+}
+
+.title-bar span{
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.items-container .item{
+  margin: 4px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: #222;
+  min-height: 80px;
+  width: calc(33.33% - 8px);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition:  0.12s;
+}
+
+
+.items-container .item.on{
+  background-color: #0066CC;
+}
+
+.items-container .item[disabled]{
+  opacity: 0.7;
+}
+
+@media not screen and (any-pointer: coarse) {
+  .items-container .item:not([disabled]):hover{
+    background-color: #333;
+  }
+
+  .items-container .item.on:not([disabled]):hover{
+    background-color: #1a4e8a;
+  }
+}
+
+.items-container .item:not([disabled]):active{
+  background-color: #0066CC;
+}
+
+.items-container .item.on:not([disabled]):active{
+  background-color: #222;
+}
+
+.items-container .item > h3{
+  font-size: 16px;
+  color: #AAA;
+}
+
+.items-container .item > i{
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  border-radius: 99px;
+  padding: 3px;
+}
+
+.items-container .item > i:hover {
+  background-color: #0066CC;
+}
+
+@media (max-width: 401px) {
+  .items-container .item{
+    width: calc(50% - 8px);
+  }
+}
+
+@media (min-width: 501px) {
+  .items-container .item{
+    width: calc(33.33% - 8px);
+  }
+}
+
+@media (min-width: 601px) {
+  .items-container .item{
+    width: calc(25% - 8px);
+  }
+}
+
+@media (min-width: 701px) {
+  .items-container .item{
+    width: calc(20% - 8px);
+  }
+}

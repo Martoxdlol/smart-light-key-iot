@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Touch</title>
+  </head>
+  <style media="screen">
+    *{
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Helvetica;
+      color: #DDD;
+      outline: none;
+    }
+
+    a{
+      color: #0066CC;
+      text-decoration: none;
+    }
+
+    nav{
+      height: 60px;
+      border-bottom: 1px solid #333;
+      background: #000;
+
+    }
+
+    nav > div{
+      padding: 8px 16px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    nav h1{
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.25em;
+    }
+
+    nav h2{
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    main section{
+      padding: 20px 16px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    body{
+      background-color: #000;
+    }
+
+    input{
+      margin: 3px 0px 0px 0px;
+      padding: 5px 4px;
+      font-size: 16px;
+      border: none;
+      border-bottom: 1px solid #0066CC;
+      width: 100%;
+      background-color: #333;
+      color: white;
+    }
+
+    .appleblue{
+      background-color: #0066CC;
+    }
+
+    .selected{
+      border: 1px solid #0066CC;
+    }
+
+    ul{
+      padding: 0;
+    }
+
+    form ul li{
+      list-style: none;
+      display: block;
+    }
+
+    form ul li a{
+      padding: 6px;
+      margin: 6px 0px;
+      background-color: #333;
+      display: block;
+      color: white;
+    }
+
+    input[type="submit"], button[type="submit"]{
+      font-size: 16px;
+      border: none;
+      background-color: #0066CC;
+      color: white;
+      width: auto;
+      float: right;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-top: 6px;
+    }
+
+  </style>
+  <body>
+    <nav>
+      <div>
+        <h1>Interruptor de luz inteligente</h1>
+        <h2>Configurar conexión</h2>
+      </div>
+    </nav>
+    <main>
+      <section>
+        <form action="">
+          <label for="ssid">Redes disponibles</label><span style="float:right"><a href="javascript:void(0)">Recargar</a></span>
+          <input type="text" name="ssid" id="ssid" value="${global.wifiSsid}" placeholder="Nombre de la red" onchange="ssidChange()" oninput="ssidChange()" onkeydown="ssidChange()" onkeyup="ssidChange()"/>
+          <aside>
+            <ul id="wifi-results">
+            </ul>
+          </aside>
+          <label for="password">Contraseña del WiFi</label>
+          <input type="password" name="password" id="password" value="${global.wifiPassword}" placeholder="Contraseña"/>
+          <button type="submit" name="save">Guardar configuración</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript">
+const ssidInputElement=document.getElementById("ssid");let networks=[{ssid:"Wificichero"},{ssid:"Wifi-casa"}],ssid="";function ssidChange(){ssid=ssidInputElement.value,showNetworks()}function showSsid(s){ssid=s,ssidInputElement.value=s,showNetworks()}function scanNetworks(){fetch("/scan-wifi").then(s=>s.json()).then(s=>{networks=s,showNetworks()})}function showNetworks(){let s="";for(var e=0;e<networks.length;e++)s+='<li><a href="javascript:void(0)"'+ssid==networks[e].ssid?' class="selected"':" onclick=\"showSsid('"+networks[e].ssid+"')\">"+networks[e].ssid+"</a></li>";document.getElementById("wifi-results").innerHTML=s}showNetworks();
+    </script>
+  </body>
+</html>

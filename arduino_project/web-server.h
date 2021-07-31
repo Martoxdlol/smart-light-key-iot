@@ -1,0 +1,3 @@
+void webServerBegin();
+
+void webServerLoop();

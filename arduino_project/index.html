@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Touch</title>
+  </head>
+  <style media="screen">
+    *{
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Helvetica;
+      color: #DDD;
+      outline: none;
+    }
+
+    a{
+      color: #0066CC;
+      text-decoration: none;
+    }
+
+    nav{
+      height: 60px;
+      border-bottom: 1px solid #333;
+      background: #000;
+
+    }
+
+    nav > div{
+      padding: 8px 16px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    nav h1{
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.25em;
+    }
+
+    nav h2{
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    main section{
+      padding: 20px 16px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    body{
+      background-color: #000;
+    }
+
+    input{
+      margin: 3px 0px 0px 0px;
+      padding: 5px 4px;
+      font-size: 16px;
+      border: none;
+      border-bottom: 1px solid #0066CC;
+      width: 100%;
+      background-color: #333;
+      color: white;
+    }
+
+    .appleblue{
+      background-color: #0066CC;
+    }
+
+    .selected{
+      border: 1px solid #0066CC;
+    }
+
+    ul{
+      padding: 0;
+    }
+
+    form ul li{
+      list-style: none;
+      display: block;
+    }
+
+    form ul li a{
+      padding: 6px;
+      margin: 6px 0px;
+      background-color: #333;
+      display: block;
+      color: white;
+    }
+
+    input[type="submit"], button[type="submit"]{
+      font-size: 16px;
+      border: none;
+      background-color: #0066CC;
+      color: white;
+      width: auto;
+      float: right;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-top: 6px;
+    }
+
+    .infobox{
+      display: block;
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+
+  </style>
+  <body>
+    <nav>
+      <div>
+        <h1>Interruptor de luz inteligente</h1>
+        <h2>Configurar conexión</h2>
+      </div>
+    </nav>
+    <main>
+      <section>
+        <h2>Estado acutal: <span id="wifistatus"></span></h2>
+        <span class="infobox">Id del dispositivo: <span id="code"></span></span>
+        <span class="infobox">Red WiFi: <span id="actualssid"></span></span>
+        <span class="infobox">Estado WiFi: <span id="wifistatus2"></span></span>
+        <span class="infobox">IP local: <span id="ip"></span></span>
+        <span class="infobox">MAC: <span id="mac"></span></span>
+        <span class="infobox">Señal: <span id="signal"></span>%</span>
+        <span class="infobox">Servidor: <span id="server"></span></span>
+      </section>
+      <section>
+        <br/>
+        <form action="save-config" method="get">
+          <label for="ssid">Redes disponibles</label><span style="float:right"><a href="javascript:void(0)" onclick="scanNetworks()">Recargar</a></span>
+          <input type="text" name="ssid" id="ssid" value="" placeholder="Nombre de la red" onchange="ssidChange()" oninput="ssidChange()" onkeydown="ssidChange()" onkeyup="ssidChange()"/>
+          <aside>
+            <ul id="wifi-results">
+            </ul>
+          </aside>
+          <br/>
+          <label for="password">Contraseña del WiFi</label><span style="float:right"><a id="showpass" href="javascript:void(0)" onclick="viewPassword()">ver</a><a id="hidepass" style="display:none" href="javascript:void(0)" onclick="viewPassword()">ocultar</a></span>
+          <input type="password" name="password" id="password" value="" placeholder="Contraseña"/>
+          <button type="submit" name="save">Guardar configuración</button>
+        </form>
+		<br/><br/><br/><br/><br/>
+		<form action="do-action" method="get">
+          <label for="ssid">Código de acción automática (ver app)</label>
+          <input type="text" name="action_code" id="action_code" value="" placeholder="ej: Az0lj75EF"/>
+          <button type="submit" name="save">Enviar</button>
+        </form>
+      </section>
+    </main>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <footer>
+    </footer>
+    <script type="text/javascript">
+      const ssidInputElement = document.getElementById('ssid');
+      var networks = []
+      var ssid = ""
+
+      function ssidChange(){
+        ssid = ssidInputElement.value
+        showNetworks()
+      }
+
+      function showSsid(wssid){
+        ssid = wssid
+        ssidInputElement.value = wssid
+        showNetworks()
+      }
+
+      function getInfo(){
+        fetch("/info").then(function(r){return r.json()}).then(function(info){
+          document.getElementById('code').innerText = info.code
+          document.getElementById('actualssid').innerText = info.actualssid
+          document.getElementById('wifistatus').innerText = info.wifistatus
+          document.getElementById('wifistatus2').innerText = info.wifistatus
+          document.getElementById('ip').innerText = info.ip
+          document.getElementById('mac').innerText = info.mac
+          document.getElementById('signal').innerText = info.signal
+          document.getElementById('server').innerText = info.server
+          document.getElementById('ssid').value = info.actualssid
+          document.getElementById('password').value = info.password
+        })
+      }
+
+      function scanNetworks(){
+        fetch("/scan-wifi").then(function(r){return r.json()}).then(function(nets){
+          networks = nets;
+          showNetworks();
+        })
+      }
+
+      function showNetworks(){
+        var baseElem = document.getElementById('wifi-results')
+        baseElem.innerHTML = ""
+        for (var i = 0; i < networks.length; i++) {
+          if(typeof networks[i] == "string") networks[i] = JSON.parse(networks[i]);
+          let elem = document.createElement("li")
+          let elem2 = document.createElement("a")
+          elem2.href = "javascript:void(0)";
+          elem2.innerText = networks[i].ssid;
+          elem2.onclick = function(){
+            showSsid(elem2.innerText)
+          }
+          elem.appendChild(elem2)
+          if(ssid == networks[i].ssid){
+            elem2.classList = ["selected"]
+          }
+          baseElem.appendChild(elem)
+        }
+      }
+
+      let viewingPass = false
+
+      function viewPassword(){
+        viewingPass = !viewingPass
+        if(viewingPass){
+          document.getElementById("hidepass").style.display = ""
+          document.getElementById("showpass").style.display = "none"
+          document.getElementById('password').type = "text"
+        }else{
+          document.getElementById('password').type = "password"
+          document.getElementById("hidepass").style.display = "none"
+          document.getElementById("showpass").style.display = ""
+        }
+      }
+
+      showNetworks()
+      scanNetworks()
+      getInfo()
+    </script>
+  </body>
+</html>

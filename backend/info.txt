@@ -1,0 +1,6 @@
+Static file server/Webpack dev server port 9000
+Internal api server port 9001
+Sockets io port 9002
+Device OTA update HTTP server 9004
+Internal devices api port 9005
+Nginx/HTTP PROXY ports 80 and 443 (http and https)

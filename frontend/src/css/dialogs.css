@@ -1,0 +1,77 @@
+.dialog{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0);
+  transition: 0.2s;
+  z-index: 3;
+}
+
+.message-box-top{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.message-box{
+  width: 100%;
+  margin: auto 0px;
+  min-height: 80px;
+  background-color: white;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.2s;
+  box-shadow: 2px 0px 7px -2px rgba(0,0,0,0.3);
+  max-width: 700px;
+  background-color: #333;
+}
+
+.bottom-sheet{
+  position: absolute;
+  bottom: 0;
+  background-color: #333;
+  width: 100%;
+  min-height: 100px;
+  transition: 0.2s;
+}
+
+.fullsceen-page{
+  width: 100%;
+  width: 100vw;
+  height: 100%;
+  margin-left: 100vw;
+  background-color: #000;
+  transition: 0.3s;
+}
+
+.fullsceen-page .pre-container{
+  max-height: 97%;
+  max-height: calc(100% - 45px);
+  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.fullsceen-page-nav{
+  height: 45px;
+  border-bottom: 1px solid #222;
+}
+
+.fullsceen-page-nav ul{
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.fullsceen-page-nav ul li:nth-child(2){
+  margin: auto;
+}
+
+.fullsceen-page-nav ul li:nth-child(3){
+  margin-left: auto;
+}

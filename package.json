@@ -1,0 +1,17 @@
+{
+  "name": "interruptor_inteligente_2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run:dev:frontend": "cd frontend && npm run dev",
+    "run:dev:backend_devices": "cd backend && nodemon --trace-warnings ./devices/src/index.js",
+    "run:dev:backend_app": "cd backend && nodemon --trace-warnings ./app/index.js",
+    "run:dev:backend_update": "cd backend/update && nodemon dev_proxy.js",
+    "run:dev:proxy": "cd dev_proxy && nodemon index.js",
+    "dev": "npx run-p run:dev:frontend run:dev:backend_devices run:dev:backend_app run:dev:backend_update run:dev:proxy"
+
+  },
+  "author": "",
+  "license": "ISC"
+}

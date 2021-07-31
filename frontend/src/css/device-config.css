@@ -1,0 +1,7 @@
+.device-config-container{
+  padding-top: 6px;
+}
+
+.device-config-container input{
+  background-color: black;
+}
