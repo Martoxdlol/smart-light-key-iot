@@ -33,16 +33,22 @@ See this video: [VIDEO](https://photos.google.com/share/AF1QipMsgXVrWToOgmYFuxDv
 
 You need to have NodeJS installed.
 
+You should create yout own Firebase project and download Firestore credentials and load them into **backend\shared\database.js**
+
 ```bash
 git clone https://github.com/Martoxdlol/smart-light-key-iot
 cd smart-light-key-iot
 npm install
+
+# Be sure to configure backend\shared\database.js with a Firestore project
 
 # To run it in dev mode
 npm dev
 
 # To build and then run it in production mode (not much difference)
 npm run build
+npm run dev_populate_db # Populate the database with some data
+npm run start
 ```
 
 

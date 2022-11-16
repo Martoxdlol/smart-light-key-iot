@@ -13,7 +13,8 @@
     "__dev": "npx run-p run:dev:frontend run:dev:backend_devices run:dev:backend_app run:dev:backend_update run:dev:proxy",
     "dev": "npx cross-env NODE_ENV=development npx concurrently \"cd backend && npx nodemon app/index.js\" \"cd frontend && npm run dev\" \"cd dev_proxy && npm run start\"",
     "build": "cd frontend && npm run build",
-    "start": "npx concurrently \"cd backend && npx nodemon app/index.js\" \"cd dev_proxy && npm run start\""
+    "start": "npx concurrently \"cd backend && npx nodemon app/index.js\" \"cd dev_proxy && npm run start\"",
+    "dev_populate_db": "cd backend && node dev_populate_db.js"
   },
   "author": "",
   "license": "ISC",

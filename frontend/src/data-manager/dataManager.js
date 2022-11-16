@@ -99,7 +99,7 @@ class DataManager{
 
   static checkCode(id){
     if(typeof id != "string") return false
-    if(id.match(/^[0-9A-Za-z\-]{2,100}$/) != null) return true
+    if(id.length >= 4 && id.length <= 100) return true
     return false
   }
 
