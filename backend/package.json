@@ -31,6 +31,7 @@
     "@babel/core": "^7.12.10",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-react": "^7.12.10",
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "nodemon": "^2.0.20"
   }
 }

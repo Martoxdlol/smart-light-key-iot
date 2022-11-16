@@ -1,4 +1,5 @@
 const app = require("express")()
+const express = require("express")
 const io = require('socket.io')(9002)
 const processRequest = require('./processSocketRequest')
 const { createSession } = require('./credentials')
@@ -19,9 +20,9 @@ const shortUUID = require('short-uuid')
 
 app.listen(9001)
 
-app.get('/', (req, res) => {
-  res.end(`API SERVER OK`)
-})
+// app.get('/', (req, res) => {
+//   res.end(`API SERVER OK`)
+// })
 
 app.get('/local-api/', (req, res) => {
   res.end(req.url)
@@ -36,6 +37,10 @@ app.get('/local-api/send-action-code', (req, res) => {
 app.get('/api', (req, res) => {
   res.end(req.url)
 })
+
+const staticPath = require('path').resolve(__dirname, '../../frontend/dist')
+
+app.use(express.static(staticPath))
 
 io.on('connection', (socket) => {
   console.log("New socket connected")

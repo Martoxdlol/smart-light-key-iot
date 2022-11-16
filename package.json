@@ -4,14 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run:dev:frontend": "cd frontend && npm run dev",
-    "run:dev:backend_devices": "cd backend && nodemon --trace-warnings ./devices/src/index.js",
-    "run:dev:backend_app": "cd backend && nodemon --trace-warnings ./app/index.js",
-    "run:dev:backend_update": "cd backend/update && nodemon dev_proxy.js",
-    "run:dev:proxy": "cd dev_proxy && nodemon index.js",
-    "dev": "npx run-p run:dev:frontend run:dev:backend_devices run:dev:backend_app run:dev:backend_update run:dev:proxy"
-
+    "install": "npx concurrently \"cd backend && npm install\" \"cd frontend && npm install\" \"cd dev_proxy && npm install\"",
+    "__run:dev:frontend": "cd frontend && npm run dev",
+    "__run:dev:backend_devices": "cd backend && nodemon --trace-warnings ./devices/src/index.js",
+    "__run:dev:backend_app": "cd backend && nodemon --trace-warnings ./app/index.js",
+    "__run:dev:backend_update": "cd backend/update && nodemon dev_proxy.js",
+    "__run:dev:proxy": "cd dev_proxy && nodemon index.js",
+    "__dev": "npx run-p run:dev:frontend run:dev:backend_devices run:dev:backend_app run:dev:backend_update run:dev:proxy",
+    "dev": "npx cross-env NODE_ENV=development npx concurrently \"cd backend && npx nodemon app/index.js\" \"cd frontend && npm run dev\" \"cd dev_proxy && npm run start\"",
+    "build": "cd frontend && npm run build",
+    "start": "npx concurrently \"cd backend && npx nodemon app/index.js\" \"cd dev_proxy && npm run start\""
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^7.5.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
+  }
 }
