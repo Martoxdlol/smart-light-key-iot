@@ -10,7 +10,7 @@ This project was made on the las year of high school. I was 17 years old.
 
 ## More about the project
 
-The idea was to make a smarth switch that can replace the normal light switch.
+The idea was to make a smart switch that can replace the normal light switch.
 And it is was controlled by a mobile app.
 
 This "app" was really a nice web PWA. It has a nice UI and it was really easy to use.
