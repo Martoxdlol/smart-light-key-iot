@@ -1,6 +1,6 @@
 const asyncRedis = require("async-redis")
 const redisClient = asyncRedis.createClient()
-const serviceAccount = require("./interruptor-inteligente-firebase-adminsdk-3kbx8-4c2db33919.json")
+const serviceAccount = require("../../interruptor-inteligente-firebase-adminsdk-3kbx8-142765ff35.json")
 
 const admin = require('firebase-admin')
 

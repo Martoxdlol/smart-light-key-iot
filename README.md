@@ -1,5 +1,7 @@
 # Smart Light Switch using ESP8266
 
+**DISCLAMER**: USE NODE 16
+
 This was a simple app for a smart light switch using ESP8266.
 I made this project some time ago and the code is shitty.
 
